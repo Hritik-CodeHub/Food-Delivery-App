@@ -1,0 +1,36 @@
+
+.resthero{
+    width: 1300px;
+    height: 330px;
+    margin-top: 30px;
+    margin-left: 110px;
+}
+
+.rest-hero-head{
+    width: 507px;
+    height: 48px;
+    font-family: 'Inter',sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    margin-left: 30px;
+}
+
+.restimg{
+    height: 150px;
+    transition: transform 0.3s;
+}
+
+.restimg:hover {
+  transform: scale(1.05);
+}
+
+.rd{
+    background-color:#fc8906d5;
+    border-radius: 4px;
+}
+
+.rest-head{
+    font-family: 'Inter',sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
