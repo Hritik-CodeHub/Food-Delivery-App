@@ -1,6 +1,6 @@
 
 import react from "react";
-import './restaurantDeals.css';
+import './RestaurantDeals.css';
 import restdeals1 from '../assets/restdeals1.jpg';
 import restdeals2 from '../assets/restdeals2.jpg';
 import restdeals3 from '../assets/restdeals3.jpg';

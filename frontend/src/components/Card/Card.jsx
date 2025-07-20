@@ -1,5 +1,5 @@
 import React from "react";
-import './foodCard.css';
+import './Card.css';
 import breakfast from '../assets/breakfast.jpg';
 import burger from '../assets/burger.jpg';
 import pasta from '../assets/pasta.jpeg';
@@ -8,7 +8,7 @@ import salad from '../assets/salad.avif';
 import soup from '../assets/soup.jpg';
 
 
-function Foodcard() {
+function Card() {
     return (
         <>
             <div className="hero">
@@ -81,4 +81,4 @@ function Foodcard() {
     );
 };
 
-export default Foodcard;
+export default Card;

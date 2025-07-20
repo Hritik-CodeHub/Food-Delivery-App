@@ -1,6 +1,6 @@
 
 import react from 'react';
-import './navBar.css'
+import './NavBar.css'
 import logo2 from '../assets/logo2.png';
 
 function AppNavbar() {

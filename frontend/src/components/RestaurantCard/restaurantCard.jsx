@@ -1,5 +1,5 @@
 import React from "react";
-import './restaurantCard.css';
+import './RestaurantCard.css';
 import taj from '../assets/tajindia.jpeg';
 import mcd from '../assets/mcd.webp';
 import dosahouse from '../assets/dosahouse.png';

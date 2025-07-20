@@ -3,10 +3,10 @@ import {BrowserRouter, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import './App.css'
-import AppNavbar from './components/Navbar/navBar';
-import RestDeals from './components/Deals/restaurantDeals';
-import Foodcard from './components/FoodCard/foodCard';
-import RestaurantCard from './components/RestaurantCard/restaurantCard';
+import AppNavbar from './components/Navbar/NavBar';
+import RestDeals from './components/Deals/RestaurantDeals';
+import Card from './components/Card/Card';
+import RestaurantCard from './components/RestaurantCard/RestaurantCard';
 
 
 
@@ -16,7 +16,7 @@ function App() {
     <>
       <AppNavbar/>
       <RestDeals/>
-      <Foodcard/>
+      <Card/>
       <RestaurantCard/>
     </>
   )
