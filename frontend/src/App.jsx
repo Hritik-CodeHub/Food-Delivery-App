@@ -1,15 +1,30 @@
-import react from 'react'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./components/Login/LoginPage";
 
-import './App.css'
+import SignupPage from "./components/SignUp/SignupPage";
+import Carousel1 from "./components/Carousel/Carousel1";
+
+import "./App.css"
 
 function App() {
-  
-
   return (
     <>
-    <h1> I am react App</h1>
-    </>
-  )
-}
+      <Router>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
 
-export default App
+          <Route path="/signup" element={<SignupPage />} />
+
+          <Route path="/carousel1" element={<Carousel1 />} />
+
+
+
+        </Routes>
+      </Router>
+    </>
+  );
+
+};
+
+export default App;
