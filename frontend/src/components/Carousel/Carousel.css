@@ -1,0 +1,222 @@
+.carousel-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 85px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.carousel-card {
+  width: 100%;
+  max-width: 1400px;
+  background-image: url("/mcdonalds1.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  color: white;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(3, 8, 31, 0.9);
+  z-index: -1;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 50px;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.left {
+  min-width: 280px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #ccc;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.tag {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid white;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+
+.score {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.stars {
+  color: #fbbf24;
+  font-size: 18px;
+}
+
+.reviews {
+  color: #ccc;
+}
+
+.open-btn {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(255, 152, 0, 0.6);
+  margin-top: 10px;
+}
+
+.right {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.carousel-buttons button {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  font-size: 28px;
+  padding: 4px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 1024px) {
+  .card-content {
+    padding: 40px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 20px;
+  }
+
+  .right img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .carousel-buttons {
+    top: auto;
+    bottom: 10px;
+    transform: none;
+  }
+
+  .carousel-buttons button {
+    font-size: 22px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .open-btn {
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-content {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .score {
+    font-size: 22px;
+  }
+
+  .stars {
+    font-size: 16px;
+  }
+
+  .tag {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .open-btn {
+    font-size: 14px;
+  }
+}
+

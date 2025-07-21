@@ -1,0 +1,55 @@
+.resthero {
+    margin-top: 25px;
+}
+
+.rest-hero-head {
+    font-family: 'Inter', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.rest0-card-style {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.restimg {
+    height: 160px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.restimg:hover {
+    transform: scale(1.05);
+}
+
+.rd {
+    background-color: #fc8906d5;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.rest-head {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+}
+
+
+@media (max-width: 768px) {
+    .rest-head {
+        font-size: 14px;
+    }
+
+    .restimg {
+        height: 120px;
+    }
+
+    .rest-hero-head {
+        font-size: 20px;
+    }
+}

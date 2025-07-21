@@ -1,0 +1,72 @@
+.rest-deals {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.dealshead {
+  font-family: 'Inter', sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  margin-left: 80px;
+}
+
+.icon {
+  background-color: black;
+}
+
+.deal-card {
+  width: 400px;
+  height: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dealsimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s  ease-in-out;
+}
+
+.deal-card:hover .dealsimg {
+  transform: scale(1.05);
+}
+
+
+
+.rest-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  
+}
+
+
+.card-overlay{
+  flex-direction: column;
+  align-content: flex-end;
+  padding: 20px;
+}
+ .card-overlay p{
+  margin: 0;
+  color: #FC8A06;
+ }
+
+@media (max-width: 768px) {
+  .deal-card {
+    width: 90%;
+    height: 200px;
+  }
+
+  .rest-name {
+    font-size: 16px;
+  }
+
+  .dealshead {
+    font-size: 20px;
+  }
+}
