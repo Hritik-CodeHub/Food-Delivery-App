@@ -1,0 +1,29 @@
+.menu-container{
+    background-color: #FC8A06;
+    padding: 10px;
+}
+
+.menu-items{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+   justify-content: center;
+}
+
+.menu-items button{
+    border-radius: 25px;
+    color: white;
+    padding: 4px;
+}
+
+.menu-items button:hover{
+    background-color: black;
+    color: white;
+    
+}
+
+@media (max-width: 768px) {
+    .menu-container{
+        display: none;
+    }
+}
