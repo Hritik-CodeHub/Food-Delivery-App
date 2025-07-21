@@ -1,5 +1,6 @@
 import react from 'react'
-
+import Footer from './components/Footer/Footer'
+import HowItWorks from './components/UpperFooter/HowItWorks'
 import './App.css'
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
 
   return (
     <>
-    <h1> I am react App</h1>
+    <HowItWorks/>
+    <Footer/>
     </>
   )
 }
