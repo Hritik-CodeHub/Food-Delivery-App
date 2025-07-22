@@ -9,7 +9,7 @@ import offer3 from "../../assets/offer3.png";
 import { BsPlusCircleFill } from 'react-icons/bs';
 import FoodCard from '../../components/FoodCard/FoodCard';
 import Navbar from '../../components/Navbar/Navbar';
-
+import Footer from "../../components/Footer/Footer"
 const RestaurantDetail = () => {
   return (<>
      <Navbar/>
@@ -70,6 +70,7 @@ const RestaurantDetail = () => {
     </div>
    
     </div>
+    <Footer/>
   </>)
 }
 
