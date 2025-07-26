@@ -18,6 +18,7 @@ function RestaurantCard() {
     ];
 
     return (
+        
         <div className="container resthero">
             <div className="rest-hero-head  mb-4">
                 Popular Restaurants
@@ -36,6 +37,7 @@ function RestaurantCard() {
                 ))}
             </div>
         </div>
+        
     );
 }
 
