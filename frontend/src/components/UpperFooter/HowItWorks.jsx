@@ -20,25 +20,25 @@ const HowItWorks = () => {
 
         <div className="how-container">
           <div className="faq-list">
-            <button className="faq-btn active">How does Order.UK work?</button>
+            <button className="faq-btn active">How does Order.India work?</button>
             <p>What payment methods are accepted?</p>
             <p>Can I track my order in real-time?</p>
             <p>Are there any special discounts or promotions available?</p>
-            <p>Is Order.UK available in my area?</p>
+            <p>Is Order.India available in my area?</p>
           </div>
 
           <div className="how-cards">
-            <div className="card">
+            <div className="footer-card-style">
               <img src={orderIcon} alt="Place Order" />
               <h4>Place an Order!</h4>
               <p>Place order through our website or Mobile app</p>
             </div>
-            <div className="card">
+            <div className="footer-card-style">
               <img src={progressIcon} alt="Track Progress" />
               <h4>Track Progress</h4>
               <p>Your can track your order status with delivery time</p>
             </div>
-            <div className="card">
+            <div className="footer-card-style">
               <img src={deliveryIcon} alt="Get Order" />
               <h4>Get your Order!</h4>
               <p>Receive your order at a lighting fast speed!</p>

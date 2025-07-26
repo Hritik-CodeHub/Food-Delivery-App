@@ -1,0 +1,56 @@
+.home-cantainer {
+    padding: 50px 15px;
+}
+
+.hero {
+    margin-top: 40px;
+}
+
+.hero-head {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.foodimg {
+    height: 150px;
+    object-fit: cover;
+}
+
+.card {
+    transition: transform 0.3s;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.bd {
+    background-color: rgba(128, 128, 128, 0.1);
+    padding: 10px;
+}
+
+.food-head {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Optional: responsive font sizing */
+@media (max-width: 768px) {
+    .food-head {
+        font-size: 13px;
+    }
+    .hero-head {
+        font-size: 20px;
+    }
+    .foodimg {
+        height: 120px;
+    }
+}
