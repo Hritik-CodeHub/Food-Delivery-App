@@ -1,13 +1,10 @@
 import react from 'react';
 import './Navbar.css'
 import logo2 from '../../assets/logo2.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 function Navbar() {
-
-    return (
-
-        <>
-
+     const navigation=useNavigate();
+    return (<>
             <div className="nav-container">
                 
                 <div className='nav-logo'>
@@ -23,7 +20,7 @@ function Navbar() {
                 </div>
 
                 <div className='nav-login'>
-                    <button className='login-btn'>
+                    <button className='login-btn' onClick={()=>{navigation("/login")}}>
                         <span className='user-icon'>👤</span>
                         Login/Signup
                     </button>

@@ -10,6 +10,8 @@ import pizza from '../../assets/pizza.avif';
 import salad from '../../assets/salad.avif';
 import soup from '../../assets/soup.jpg';
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
+import HowItWorks from "../../components/UpperFooter/HowItWorks"
+import Footer from "../../components/Footer/Footer"
 
 const Home = () => {
     let foodItem =[ 
@@ -42,7 +44,9 @@ const Home = () => {
     ))}
   </div>
 </div>
-<RestaurantCard/>   
+<RestaurantCard/>
+<HowItWorks/>
+<Footer/>
      </>)
 }
 
