@@ -6,6 +6,7 @@ import 'bootstrap/dist/js/bootstrap.js';
 import SignupPage from "./components/SignUp/SignupPage";
 import Carousel1 from "./components/Carousel/Carousel1";
 import MenuList from "./components/MenuList/MenuList";
+import PizzaCustomizer from "./components/PopUp/PizzaCustomizer";
 
 import "./App.css"
 
@@ -21,6 +22,8 @@ function App() {
           <Route path="/carousel1" element={<Carousel1 />} />
 
           <Route path="/menu" element={<MenuList />} />
+
+          <Route path="/popup2" element={<PizzaCustomizer />} />
 
 
 
