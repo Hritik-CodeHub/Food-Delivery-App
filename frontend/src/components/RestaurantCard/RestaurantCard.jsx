@@ -6,7 +6,7 @@ import dosahouse from '../../assets/dosahouse.png';
 import bk from '../../assets/bk.png';
 import lalit from '../../assets/lalit.png';
 import dominos from '../../assets/dominos.png';
-
+import { Link } from "react-router-dom";
 function RestaurantCard() {
     const restaurants = [
         { img: taj, name: "The Taj Restaurant", alt: "The Taj" },
@@ -25,14 +25,14 @@ function RestaurantCard() {
 
             <div className="row">
                 {restaurants.map((rest, index) => (
-                    <div className="col-6 col-md-4 col-lg-2 mb-4" key={index}>
+                    <Link to={`/restaurants/${rest.name.trim()}`} className="link-style col-6 col-md-4 col-lg-2 mb-4" key={index}>
                         <div className="rest0-card-style card h-100">
                             <img src={rest.img} className="restimg card-img-top" alt={rest.alt} />
                             <div className="rd card-body d-flex align-items-center justify-content-center">
                                 <h5 className="rest-head  text-center">{rest.name}</h5>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>

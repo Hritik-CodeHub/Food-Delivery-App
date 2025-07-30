@@ -74,19 +74,19 @@ body, html {
 
 
 
-.signup-text {
+.login-footer {
   margin-top: 20px;
   font-size: 14px;
   color: #333;
 }
 
-.signup-text a {
-  color: #ff7a00;
+.login-footer  a {
   text-decoration: none;
+  color: #ff7a00;
   font-weight: 500;
 }
 
-.signup-text a:hover {
+.login-footer a:hover {
   text-decoration: underline;
 }
 

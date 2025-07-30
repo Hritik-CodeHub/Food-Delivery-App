@@ -1,8 +1,8 @@
-import React from 'react'
+import React ,{useContext} from 'react'
 import  "./Home.css"
 import Navbar from "../../components/Navbar/Navbar"
 import Carousel from '../../components/Carousel/Carousel'
-import RestDeals from '../../components/Deals/RestaurantDeals'
+import RestaurantDeals from '../../components/Deals/RestaurantDeals'
 import breakfast from '../../assets/breakfast.jpg';
 import burger from '../../assets/burger.jpg';
 import pasta from '../../assets/pasta.jpeg';
@@ -12,20 +12,24 @@ import soup from '../../assets/soup.jpg';
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
 import HowItWorks from "../../components/UpperFooter/HowItWorks"
 import Footer from "../../components/Footer/Footer"
+import { UserContext } from '../../context/UserContext'
+import { Link } from 'react-router-dom'
 
-const Home = () => {
+const Home =  () => {
     let foodItem =[ 
       { src: burger, title: "Burgers & Fast Food", alt: "burgers" },
       { src: salad, title: "Salads", alt: "salads" },
       { src: pasta, title: "Pasta & Casuals", alt: "pastas" },
       { src: pizza, title: "Pizza", alt: "pizzas" },
       { src: breakfast, title: "Breakfast", alt: "breakfasts" },
-      { src: soup, title: "Soups", alt: "soups" }
-    ]
+      { src: soup, title: "Soups", alt: "soups" },
+    ];
+    const { cardData } = useContext(UserContext);
+    console.log(cardData);
   return (<>
      <Navbar/>
     <Carousel/>
-    <RestDeals/>
+    <RestaurantDeals/>
     <div className="container hero">
   <div className="hero-head" style={{textAlign:"left"}}>
     Order.India Popular Categories 🤩
@@ -34,12 +38,12 @@ const Home = () => {
   <div className="row">
     {foodItem.map((item, index) => (
       <div className="col-6 col-md-4 col-lg-2 mb-4" key={index}>
-        <div className="card h-100">
+        <Link to={`/restaurants/${item.title}`}className="link-style card h-100">
           <img src={item.src} className="foodimg card-img-top" alt={item.alt} />
           <div className="bd card-body d-flex align-items-center justify-content-center">
             <h5 className="food-head card-title text-center">{item.title}</h5>
           </div>
-        </div>
+        </Link>
       </div>
     ))}
   </div>

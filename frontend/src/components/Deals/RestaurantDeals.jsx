@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext, useState} from "react";
 import './RestaurantDeals.css';
 import restdeals1 from '../../assets/restdeals1.jpg';
 import restdeals2 from '../../assets/restdeals2.jpg';
@@ -9,8 +9,12 @@ import restdeals6 from '../../assets/restdeals6.jpg';
 import restdeals7 from '../../assets/restdeals7.jpg';
 import restdeals8 from '../../assets/restdeals8.jpg';
 import restdeals9 from '../../assets/restdeals9.jpg';
+import { UserContext } from '../../context/UserContext'
+import { Link } from "react-router-dom";
 
-function RestDeals() {
+function RestaurantDeals() {
+    const { cardData } = useContext(UserContext);
+    
     const slides = [
         {
             images: [restdeals1, restdeals2, restdeals3],
@@ -49,13 +53,13 @@ function RestDeals() {
                     <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
                         <div className="d-flex flex-wrap justify-content-center gap-4">
                             {slide.images.map((img, idx) => (
-                                <div key={idx} className="deal-card position-relative">
+                                <Link to={`/restaurants/${slide.names[idx]}`} key={idx} className="deal-card position-relative">
                                     <img className="dealsimg" src={img} alt={`deal${idx}`} />
                                     <div className="card-overlay">
                                         <p>Restaurant</p>
                                         <div className="rest-name">{slide.names[idx]}</div>
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </div>
@@ -75,4 +79,4 @@ function RestDeals() {
     );
 }
 
-export default RestDeals;
+export default RestaurantDeals;

@@ -1,17 +1,42 @@
-import React, { useState } from "react";
+import React, { useState , useContext} from "react";
 import "./Login.css";
-
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import {UserContext} from "../../context/UserContext";
+
 
 const Login = () => {
+  const { login } = useContext(UserContext);
+  const navigation=useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const res=await axios.post(`${import.meta.env.VITE_BACKEND_URL}/login-user`,
+      {
+        email,
+        password,
+      });
 
-    console.log("Email:", email);
-    console.log("Password:", password);
+      const { success, message, name ,token } = res.data;
+      if (success) {
+        login(name,token);
+        console.log(name)
+        toast.success("Login successful:");
+        navigation("/");
+      } else {
+        toast.error(message);
+        console.error("Login failed:", message);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || "internal server error");
+      console.log(error);
+    }
+    
   };
 
   return (
