@@ -1,0 +1,144 @@
+/* Base styles */
+.request-page {
+  max-width: 600px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.request-header img.request-bg-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.request-body {
+  padding: 20px;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: orange;
+  font-weight: 600;
+  margin: 12px 0;
+}
+
+.request-textarea {
+  width: 100%;
+  height: 100px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  padding: 10px;
+  resize: none;
+  margin-bottom: 20px;
+}
+
+.request-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.price-box {
+  background-color: #ffa726;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #2e7d32;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-btn {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .request-page {
+    margin: 20px;
+    border-radius: 8px;
+  }
+
+  .request-header img.request-bg-img {
+    height: 160px;
+  }
+
+  .request-body {
+    padding: 15px;
+  }
+
+  .footer-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .back-btn, .add-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 18px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .request-textarea {
+    height: 90px;
+  }
+
+  .price-box {
+    font-size: 13px;
+  }
+
+  .back-btn, .add-btn {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+}

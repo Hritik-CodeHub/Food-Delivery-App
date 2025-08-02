@@ -1,73 +1,103 @@
 import React, { useState } from 'react';
 import './PizzaCustomizer.css';
 
+const MAX_SELECTION = 4;
 
-const toppings = {
-  vegetable: ['Cheese', 'Green peppers', 'Tomato', 'Mushrooms', 'Sweetcorns', 'Jalapeneos', 'Olives', 'Pineapples', 'Onions'],
+const toppingOptions = {
+  vegetable: ['Cheese', 'Green peppers', 'Tomato', 'Mushrooms', 'Sweetcorn', 'Jalapeneos', 'Olives', 'Pineapples', 'Onions'],
   meat: ['Chicken', 'Beef', 'Salami', 'Pepperoni', 'Chicken Tikka', 'Fish'],
   seafood: ['Tuna', 'Anchovies', 'Prawns'],
 };
 
 const PizzaCustomizer = () => {
   const [selected, setSelected] = useState([]);
-  const maxSelection = 4;
 
-  const handleToggle = (item) => {
-    if (selected.includes(item)) {
-      setSelected(selected.filter(i => i !== item));
-    } else if (selected.length < maxSelection) {
-      setSelected([...selected, item]);
+  const handleToggle = (topping) => {
+    if (selected.includes(topping)) {
+      setSelected(prev => prev.filter(item => item !== topping));
+    } else if (selected.length < MAX_SELECTION) {
+      setSelected(prev => [...prev, topping]);
     }
   };
 
-  const renderCheckboxGroup = (title, icon, items) => (
-    <div className="mb-4">
-      <div className="d-flex align-items-center mb-2 section-header">
-        <span className="icon-circle me-2">{icon}</span>
-        <span className="section-title px-3 py-1">{title}</span>
-      </div>
-      <div className="row">
-        {items.map(item => (
-          <div className="col-6 col-md-4" key={item}>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                id={item}
-                checked={selected.includes(item)}
-                onChange={() => handleToggle(item)}
-              />
-              <label className="form-check-label" htmlFor={item}>
-                {item}
-              </label>
-            </div>
+  const isChecked = (topping) => selected.includes(topping);
+  const remaining = MAX_SELECTION - selected.length;
+
+  return (
+    <div className="toppings-selector">
+      <img src="src\assets\image\RectanglePizza.png" alt="Pizza Top" className="top-image" /> 
+
+      <div className="toppings-body">
+        <div className="breadcrumbs">
+          Special Offers &gt; Meal Deal 1 &gt; Customise Pizza 1
+        </div>
+
+        <div className="selection-info">
+          <span className="subtitle">Customise your chicken Pizza</span>
+          <span className="limit-text">
+            {remaining > 0 ? `you can still select ${remaining} more` : 'limit reached'}
+          </span>
+        </div>
+
+        <div className="count-selected">{selected.length}/{MAX_SELECTION} Selected</div>
+
+        <h3 className="main-title">Please select up to 4 options free!</h3>
+
+        <ToppingGroup
+          title="Vegetable Toppings"
+          icon="🥕"
+          options={toppingOptions.vegetable}
+          selected={selected}
+          handleToggle={handleToggle}
+        />
+
+        <ToppingGroup
+          title="Meat Toppings"
+          icon="🍖"
+          options={toppingOptions.meat}
+          selected={selected}
+          handleToggle={handleToggle}
+        />
+
+        <ToppingGroup
+          title="Seafood Toppings"
+          icon="🐟"
+          options={toppingOptions.seafood}
+          selected={selected}
+          handleToggle={handleToggle}
+        />
+
+        <div className="toppings-footer">
+          <div className="price-box">Total to pay: 175 Rs.</div>
+          <div className="footer-actions">
+            <button className="back-btn">Take me back</button>
+            <button className="next-btn">Next Step</button>
           </div>
-        ))}
+          <small className="footer-note">Delivery & Tax will be calculated in the next step</small>
+        </div>
       </div>
     </div>
   );
+};
 
+const ToppingGroup = ({ title, icon, options, selected, handleToggle }) => {
   return (
-    <div className="pizza-modal container p-0">
-      <div className="pizza-header">
-        <img src="src\assets\image\RectanglePizza.png" alt="Pizza" className="img-fluid rounded-top" />
+    <div className="topping-group">
+      <div className="group-header">
+        <span className="group-icon">{icon}</span>
+        <span className="group-title">{title}</span>
       </div>
-      <div className="pizza-customizer p-4">
-        <h5 className="mb-1">Customise your chicken Pizza</h5>
-        <p className="text-danger fw-bold">Please select up to 4 options free!</p>
-        <p className="text-success">{selected.length}/4 Selected</p>
-
-        {renderCheckboxGroup('Vegetable Toppings', '🥦', toppings.vegetable)}
-        {renderCheckboxGroup('Meat Toppings', '🍖', toppings.meat)}
-        {renderCheckboxGroup('Seafood Toppings', '🐟', toppings.seafood)}
-
-        <div className="d-flex justify-content-between align-items-center mt-4">
-          <span className="price-tag fw-bold">Total to pay: 175 Rs.</span>
-          <div>
-            <button className="btn btn-outline-secondary me-2">Take me back</button>
-            <button className="btn btn-success">Next Step</button>
-          </div>
-        </div>
+      <div className="topping-options">
+        {options.map(option => (
+          <label key={option} className="topping-checkbox">
+            <input
+              type="checkbox"
+              checked={selected.includes(option)}
+              onChange={() => handleToggle(option)}
+            />
+            {option}
+          </label>
+        ))}
       </div>
     </div>
   );

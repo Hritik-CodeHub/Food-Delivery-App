@@ -7,6 +7,8 @@ import SignupPage from "./components/SignUp/SignupPage";
 import Carousel1 from "./components/Carousel/Carousel1";
 import MenuList from "./components/MenuList/MenuList";
 import PizzaCustomizer from "./components/PopUp/PizzaCustomizer";
+import PizzaRequest from "./components/PopUp/PizzaRequest";
+import PizzaSelector from "./components/PopUp/PizzaSelector";
 
 import "./App.css"
 
@@ -23,7 +25,14 @@ function App() {
 
           <Route path="/menu" element={<MenuList />} />
 
+          <Route path="/popup1" element={<PizzaSelector />} />
+
           <Route path="/popup2" element={<PizzaCustomizer />} />
+
+          <Route path="/popup3" element={<PizzaRequest/>} />
+
+          
+
 
 
 
