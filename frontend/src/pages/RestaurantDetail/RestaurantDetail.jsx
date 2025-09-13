@@ -48,6 +48,7 @@ const RestaurantDetail = () => {
 
   return (<>
     <Navbar />
+    <Navbar />
     <Carousel />
     <div class="searchBar row g-3 align-items-center">
       <div class="col-auto">
@@ -116,4 +117,4 @@ const RestaurantDetail = () => {
   </>)
 }
 
-export default RestaurantDetail
+export default RestaurantDetail;
