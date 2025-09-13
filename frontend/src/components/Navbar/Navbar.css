@@ -30,23 +30,22 @@
 }
 
 
+
 .nav-item {
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
-    font-weight: 550;
-    font-size: 18px;
-    font-family: 'Poppins', sans-serif;
-    padding: 8px 16px;
-    border-radius: 25px;
-    letter-spacing: 0%;
-    line-height: 100%;
-    transition: background-color 0.3s;
+  padding: 10px 15px;
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
+  border-radius: 25px;
 }
 
-.nav-item:hover {
-    background-color: #FC8A06;
+.nav-item.active {
+  color: #FC8A06;
 }
+
+/* .nav-item:hover {
+    background-color: #FC8A06;
+} */
 
 
 .nav-login .login-btn {

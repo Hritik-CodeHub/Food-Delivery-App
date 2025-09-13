@@ -1,9 +1,9 @@
 .home-cantainer {
     padding: 50px 15px;
 }
-
 .hero {
-    margin-top: 40px;
+    margin: 40px 60px 0px;
+
 }
 
 .hero-head {
@@ -42,6 +42,15 @@
     font-size: 14px;
 }
 
+.cls{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 25px 60px 60px;
+    gap: 30px;
+}
+
 /* Optional: responsive font sizing */
 @media (max-width: 768px) {
     .food-head {
@@ -53,4 +62,8 @@
     .foodimg {
         height: 120px;
     }
+    .cls{
+    margin: 25px 30px 30px;
+    
+}
 }

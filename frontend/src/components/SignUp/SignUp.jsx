@@ -37,15 +37,15 @@ const SignUp = () => {
     }
 
     try {
-      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/signin-user`, {
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/register`, {
         name,
         email,
         password,
       });
 
-      const { success, message, name: userName, token  } = res.data;
+      const { success, message, _id, name , token  } = res.data;
       if (success) {
-        login(userName, token);
+        login({name, _id}, token);
         toast.success("Sign up successful!");
         navigate("/");
       } else {

@@ -1,56 +1,39 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { BsPlusCircleFill } from 'react-icons/bs';
-import { FaMinus, FaPlus } from 'react-icons/fa';
+import { FaMinus, FaPlus, FaStar } from 'react-icons/fa';
 import "./FoodCard.css";
+import { BasketContext } from '../../context/BasketContext';
 
 const FoodCard = ({ item }) => {
-  const [quantity, setQuantity] = useState(0);
-  const [showCounter, setShowCounter] = useState(false);
+  const { basket, addItem, removeItem } = useContext(BasketContext);
 
-  const handleAddClick = () => {
-    setShowCounter(true);
-    setQuantity(1);
-  };
-
-  const increment = () => {
-    setQuantity(prev => prev + 1);
-  };
-
-  const decrement = () => {
-    if (quantity > 1) {
-      setQuantity(prev => prev - 1);
-    } else {
-      setShowCounter(false);
-      setQuantity(0);
-    }
-  };
+  const quantity = basket[item._id] || 0;
 
   return (
-    <>
-      {item && (
-        <div className="meal-card-style card">
-          {!showCounter ? (
-            <div className="add-icon" onClick={handleAddClick}>
-              <BsPlusCircleFill size={48} color="#000" />
-            </div>
-          ) : (
-            <div className="add-icon icon-color">
-              <button onClick={decrement}><FaMinus /></button>
-              <span>{quantity}</span>
-              <button onClick={increment}><FaPlus /></button>
-            </div>
-          )}
-
-          <div className="meal-card-text">
-            <h2><strong>{item.name}</strong></h2>
-            <h5 className="card-title"><small>{item.description}</small></h5>
-            <h4><strong>₹{item.price}</strong></h4>
-          </div>
-
-          <img src={item.menuItemImg} className="meal-img" alt="..." />
+    <div className="meal-card-style card">
+      {quantity === 0 ? (
+        <div className="add-icon" onClick={() => addItem(item._id)}>
+          <BsPlusCircleFill size={48} color="#000" />
+        </div>
+      ) : (
+        <div className="add-icon icon-color">
+          <button onClick={() => removeItem(item._id)}><FaMinus /></button>
+          <span>{quantity}</span>
+          <button onClick={() => addItem(item._id)}><FaPlus /></button>
         </div>
       )}
-    </>
+
+      <div className="meal-card-text">
+        <div>
+          <h2><strong>{item.name}</strong></h2>
+          <span className='rating'><FaStar style={{ color: "green" }} /> {item.rating}</span>
+          <h5 className="card-title"><small>{item.description}</small></h5>
+        </div>
+        <h4><strong>₹{item.price}</strong></h4>
+      </div>
+
+      <img src={item.menuItemImg} className="meal-img" alt="..." />
+    </div>
   );
 };
 

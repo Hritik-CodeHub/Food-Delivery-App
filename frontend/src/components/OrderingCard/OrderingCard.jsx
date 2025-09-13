@@ -1,173 +1,36 @@
-import React from "react";
+import React, { useContext } from 'react';
+import { BsPlusCircleFill } from 'react-icons/bs';
+import { FaMinus, FaPlus, FaStar } from 'react-icons/fa';
 import "./OrderingCard.css";
-import chilli from "../../assets/chilli.png";
-import ofc from "../../assets/ofc.jpg";
-import ofc1 from "../../assets/ofc1.png";
-import ofc2 from "../../assets/ofc2.png";
+import { BasketContext } from '../../context/BasketContext';
 
-function OrderingCard() {
+function OrderingCard({ item }) {
+  const { basket, addItem, removeItem } = useContext(BasketContext);
+  const quantity = basket[item._id] || 0;
 
-    return (
-        <>
-
-            <div class="ordering-card-container">
-                <div class="row align-items-start">
-                    <div class="col-md-3"></div>
-
-                    <div class="ofc col">
-                        
-                        <div className="foodchoice">
-
-                            <div className="fname">Farm House Xtreme Pizza</div>
-                            <div className="fchilli"><img src={chilli} alt="chilli" /></div>
-                            <div className="fitems">1 McChicken™, 1 Big Mac™,  1 Royal Cheeseburger, 3 medium sized French Fries , 3 cold drinks</div>
-
-                            <div className="size-categories">
-
-                                <div className="S box">
-                                    <div className="fsize">
-                                        <div className="fsize-category">Small</div>
-                                        <div className="fsize-price">Rs.260</div>
-                                    </div>
-                                </div>
-
-                                <div className="M">
-                                    <div className="M-fsize">
-                                        <div className="M-fsize-category">Medium</div>
-                                        <div className="M-fsize-price">Rs.380</div>
-                                    </div>
-                                </div>
-
-                                <div className="box">
-                                    <div className="fsize">
-                                        <div className="fsize-category">Large</div>
-                                        <div className="fsize-price">Rs.520</div>
-                                    </div>
-                                </div>
-
-                                <div className="XL">
-                                    <div className="XL-fsize">
-                                        <div className="XL-fsize-category">XL Large with Sauces</div>
-                                        <div className="XL-fsize-price">Rs.680</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="foodchoiceimg"><img src={ofc} alt="foodchoiceimg" /></div>
-
+    return (<>
+        <div className="ord-card-style card ">
+            {quantity === 0 ? (
+                    <div className="ord-add-icon" onClick={() => addItem(item._id)}>
+                      <BsPlusCircleFill size={48} color="#000" />
                     </div>
-
-                    <div class="col-md-3"></div>
-                </div>
-            </div>
-
-             <div class="ordering-card-container">
-                <div class="row align-items-start">
-                    <div class="col-md-3"></div>
-
-                    <div class="ofc col">
-                        
-                        <div className="foodchoice">
-
-                            <div className="fname">Deluxe Pizza</div>
-                            <div className="fchilli"><img src={chilli} alt="chilli" /></div>
-                            <div className="fitems">1 McChicken™, 1 Big Mac™,  1 Royal Cheeseburger, 3 medium sized French Fries , 3 cold drinks</div>
-
-                            <div className="size-categories">
-
-                                <div className="S box">
-                                    <div className="fsize">
-                                        <div className="fsize-category">Small</div>
-                                        <div className="fsize-price">Rs.260</div>
-                                    </div>
-                                </div>
-
-                                <div className="M">
-                                    <div className="M-fsize">
-                                        <div className="M-fsize-category">Medium</div>
-                                        <div className="M-fsize-price">Rs.380</div>
-                                    </div>
-                                </div>
-
-                                <div className="box">
-                                    <div className="fsize">
-                                        <div className="fsize-category">Large</div>
-                                        <div className="fsize-price">Rs.520</div>
-                                    </div>
-                                </div>
-
-                                <div className="XL">
-                                    <div className="XL-fsize">
-                                        <div className="XL-fsize-category">XL Large with Sauces</div>
-                                        <div className="XL-fsize-price">Rs.680</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="foodchoiceimg"><img src={ofc1} alt="foodchoiceimg" /></div>
-
+                  ) : (
+                    <div className="ord-add-icon icon-color">
+                      <button onClick={() => removeItem(item._id)}><FaMinus /></button>
+                      <span>{quantity}</span>
+                      <button onClick={() => addItem(item._id)}><FaPlus /></button>
                     </div>
-
-                    <div class="col-md-3"></div>
-                </div>
-            </div>
-
+                  )}
             
-             <div class="ordering-card-container">
-                <div class="row align-items-start">
-                    <div class="col-md-3"></div>
-
-                    <div class="ofc col">
-                        
-                        <div className="foodchoice">
-
-                            <div className="fname">Tandoori Pizza</div>
-                            <div className="fchilli"><img src={chilli} alt="chilli" /></div>
-                            <div className="fitems">1 McChicken™, 1 Big Mac™,  1 Royal Cheeseburger, 3 medium sized French Fries , 3 cold drinks</div>
-
-                            <div className="size-categories">
-
-                                <div className="S box">
-                                    <div className="fsize">
-                                        <div className="fsize-category">Small</div>
-                                        <div className="fsize-price">Rs.260</div>
-                                    </div>
-                                </div>
-
-                                <div className="M">
-                                    <div className="M-fsize">
-                                        <div className="M-fsize-category">Medium</div>
-                                        <div className="M-fsize-price">Rs.380</div>
-                                    </div>
-                                </div>
-
-                                <div className="box">
-                                    <div className="fsize">
-                                        <div className="fsize-category">Large</div>
-                                        <div className="fsize-price">Rs.520</div>
-                                    </div>
-                                </div>
-
-                                <div className="XL">
-                                    <div className="XL-fsize">
-                                        <div className="XL-fsize-category">XL Large with Sauces</div>
-                                        <div className="XL-fsize-price">Rs.680</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="foodchoiceimg"><img src={ofc2} alt="foodchoiceimg" /></div>
-
-                    </div>
-
-                    <div class="col-md-3"></div>
-                </div>
+            <div className="ord-card-text">
+                <h3 ><strong>{item.name}</strong></h3>
+                <h4 className="ord-card-title"><small>{item.description}</small></h4>
+                <span className="ord-stars">{item.rating}★ ★ ★ ★ ☆</span>
+                <h3><strong>₹{item.price}</strong></h3>
             </div>
-
-        </>
+            <img src={item.menuItemImg} className="ord-card-img" alt="..." />
+        </div>
+    </>
     )
 }
 

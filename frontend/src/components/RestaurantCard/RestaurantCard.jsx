@@ -7,6 +7,8 @@ import bk from '../../assets/bk.png';
 import lalit from '../../assets/lalit.png';
 import dominos from '../../assets/dominos.png';
 import { Link } from "react-router-dom";
+
+
 function RestaurantCard() {
     const restaurants = [
         { img: taj, name: "The Taj Restaurant", alt: "The Taj" },
@@ -19,7 +21,7 @@ function RestaurantCard() {
 
     return (
         
-        <div className="container resthero">
+        <div className="resthero">
             <div className="rest-hero-head  mb-4">
                 Popular Restaurants
             </div>

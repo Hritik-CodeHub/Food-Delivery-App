@@ -1,0 +1,152 @@
+/* Container Styles */
+.main-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  justify-content: space-between;
+  padding: 3rem;
+  background: rgba(3, 8, 31, 0.9);
+  height: 550px;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 2px solid #fbfbfb;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Text Area */
+.text-container {
+  position: relative;
+  max-width: 500px;
+  color: #ffff;
+}
+
+.subtitle {
+  font-size: 18px;
+  line-height: 66px;
+  margin-top: 80px;
+  margin-bottom: 0.5rem;
+}
+
+.main-title {
+  font-size: 42px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.highlight-orange {
+  color: orange;
+}
+
+
+/* Images */
+.img-pizza {
+  position: absolute;
+  right: 400px;
+  width: 55%;
+  bottom: 0;
+  z-index: 4;
+}
+
+.img-noodles {
+  position: absolute;
+  right: 285px;
+  bottom: 0;
+  z-index: 3;
+}
+
+.img-box {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  z-index: 2;
+}
+
+/* Notification Cards */
+.notification {
+  position: absolute;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  width: 350px;
+  height: 80px;
+  font-size: 12px;
+  z-index: 10;
+  animation: slideIn 0.6s ease forwards;
+  animation-fill-mode: both;
+}
+
+.notification p {
+  margin-bottom: 2px;
+}
+
+.notif-order-received {
+  top: 60px;
+  right: 120px;
+  animation-delay: 0.5s;
+}
+
+.notif-order-accepted {
+  top: 220px;
+  right: 20px;
+  animation-delay: 1.2s;
+}
+
+.notif-rider-nearby {
+  top: 380px;
+  right: 60px;
+  animation-delay: 1.9s;
+}
+
+.sub {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+/* Animations */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .text-container {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .main-title {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 1.4;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+
+  .img-pizza,
+  .img-noodles,
+  .img-box,
+  .notification {
+    display: none;
+  }
+}

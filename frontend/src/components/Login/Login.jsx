@@ -16,15 +16,15 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res=await axios.post(`${import.meta.env.VITE_BACKEND_URL}/login-user`,
+      const res=await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/login`,
       {
         email,
         password,
       });
 
-      const { success, message, name ,token } = res.data;
+      const { success, message, _id, name ,token } = res.data;
       if (success) {
-        login(name,token);
+        login({name,_id},token);
         console.log(name)
         toast.success("Login successful:");
         navigation("/");

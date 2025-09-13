@@ -1,5 +1,5 @@
 .resthero {
-    margin-top: 25px;
+    margin: 25px 60px 60px;
 }
 
 .rest-hero-head {
@@ -39,7 +39,7 @@
     color: white;
 }
 
-.link-style{
+.link-style {
     text-decoration: none;
 }
 

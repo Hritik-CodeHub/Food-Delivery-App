@@ -1,9 +1,9 @@
 import React from 'react'
-import "./Menu.css"
-const Menu = () => {
+import "./MenuBar.css"
+const MenuBar = () => {
     return (<>
-        <div className="menu-container ">
-            <div className='menu-items'>
+        <div className="menuBar-container ">
+            <div className='menuBar-items'>
                 <button class="nav-link active"  >Offers</button>
 
                 <button class="nav-link active"  >Burgers</button>
@@ -25,4 +25,4 @@ const Menu = () => {
     )
 }
 
-export default Menu
+export default MenuBar

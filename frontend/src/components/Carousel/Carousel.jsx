@@ -50,7 +50,7 @@ const Carousel = () => {
   return (
     <div className="carousel-container">
       <div className="carousel-card">
-          <div className="overlay"></div>
+          <div className="carousel-overlay"></div>
         <div className="card-content">
           <div className="left">
             <p className="subtitle">{carouselItems[currentIndex].subtitle}</p>

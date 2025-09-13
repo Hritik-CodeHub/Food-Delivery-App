@@ -46,6 +46,10 @@
     font-size: 14px;
     margin: 0;
 }
+.rating{
+  align-items: center;
+  margin-bottom: 8px;
+}
 
 .add-icon {
     display: flex;
