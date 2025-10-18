@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import "./Signup.css";
+import "./SignUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
