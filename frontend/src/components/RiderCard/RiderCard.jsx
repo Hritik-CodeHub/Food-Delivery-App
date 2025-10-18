@@ -1,6 +1,6 @@
 import React from 'react';
 import '../PartnerWithUsCard/PartnerWithUsCard.css'; // custom styles (see below)
-import chefImg from "../../Assets/riderImg.png";
+import chefImg from "../../assets/riderImg.png";
 
 const RiderCard = () => {
   
