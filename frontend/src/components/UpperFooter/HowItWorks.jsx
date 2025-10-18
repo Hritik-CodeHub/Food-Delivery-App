@@ -1,8 +1,8 @@
 import React from 'react';
 import './HowItWorks.css';
-import orderIcon from '../../Assets/orderIcon.png'
-import progressIcon from '../../Assets/progressIcon.png'
-import deliveryIcon from '../../Assets/deliveryIcon.png'
+import orderIcon from '../../assets/orderIcon.png'
+import progressIcon from '../../assets/progressIcon.png'
+import deliveryIcon from '../../assets/deliveryIcon.png'
 
 const HowItWorks = () => {
   return (<>

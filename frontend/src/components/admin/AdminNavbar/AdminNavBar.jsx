@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import logo2 from '../../../Assets/logo2.png';
+import logo2 from '../../../assets/logo2.png';
 import { UserContext } from '../../../context/UserContext';
 import {  useNavigate } from 'react-router-dom';
 const AdminNavBar = () => {
