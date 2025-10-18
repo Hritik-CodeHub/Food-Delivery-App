@@ -1,6 +1,6 @@
 import React from "react";
 import "./PartnerWithUsCard.css"; 
-import chefImg from "../../Assets/chef.png"; 
+import chefImg from "../../assets/chef.png"; 
 import { useNavigate } from "react-router-dom";
 
 const PartnerWithUsCard = () => {
