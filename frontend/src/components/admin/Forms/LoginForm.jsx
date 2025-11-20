@@ -41,9 +41,9 @@ const LoginForm = ({ setLoginForm }) => {
       );
       console.log("email:", adminData.email.trim(),
           "password:" ,adminData.password,)
-      const { success, message, _id, name, restaurantExists, token } = res.data;
+      const { success, message, _id, name, restaurantExists, restaurantId, token } = res.data;
       if (success) {
-        adminLogin({ name, _id, restaurantId:restaurantExists }, token);
+        adminLogin({ name, _id, restaurantId }, token);
         toast.success('login successful!');
         if(restaurantExists){
           navigation("/admin-dashboard")

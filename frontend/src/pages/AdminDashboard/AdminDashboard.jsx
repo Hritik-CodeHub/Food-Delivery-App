@@ -24,10 +24,10 @@ import {
 
 
 const mockOrders = [
-  { id: "ODR-10213", customer: "Aman Gupta", totalItems: 4, amount: 749, status: "Preparing", eta: "15 min", placedAt: "2025-08-30 12:32", method: "UPI" },
-  { id: "ODR-10214", customer: "Priya Singh", totalItems: 2, amount: 389, status: "Out for delivery", eta: "6 min", placedAt: "2025-08-30 12:46", method: "COD" },
-  { id: "ODR-10212", customer: "Ravi Kumar", totalItems: 1, amount: 199, status: "Delivered", eta: "—", placedAt: "2025-08-29 20:15", method: "Card" },
-  { id: "ODR-10211", customer: "Neha Verma", totalItems: 3, amount: 529, status: "Cancelled", eta: "—", placedAt: "2025-08-29 19:03", method: "UPI" },
+  { orderId: "ODR-10213", customer: "Aman Gupta", totalItems: 4, amount: 749, status: "Preparing", eta: "15 min", placedAt: "2025-08-30 12:32", method: "UPI" },
+  { orderId: "ODR-10214", customer: "Priya Singh", totalItems: 2, amount: 389, status: "Out for delivery", eta: "6 min", placedAt: "2025-08-30 12:46", method: "COD" },
+  { orderId: "ODR-10212", customer: "Ravi Kumar", totalItems: 1, amount: 199, status: "Delivered", eta: "—", placedAt: "2025-08-29 20:15", method: "Card" },
+  { orderId: "ODR-10211", customer: "Neha Verma", totalItems: 3, amount: 529, status: "Cancelled", eta: "—", placedAt: "2025-08-29 19:03", method: "UPI" },
 ];
 
 const mockMenu = [
@@ -45,15 +45,16 @@ const statusVariant = {
 };
 
 export default function AdminDashboard() {
-  const { admin }=useContext(AdminContext);
+  const { admin, token }=useContext(AdminContext);
   const [active, setActive] = useState("overview");
   const [orders, setOrders] = useState(mockOrders);
   const [menu, setMenu] = useState(mockMenu);
+  console.log(admin.restaurantId);
 
   useEffect(()=>{
     const fetchOrders= async ()=>{
        try {
-        const res=await axios.get(`${import.meta.env.VITE_BACKEND_URL}/admin/orders/68ad99f917e4c291dfa3947d`);
+        const res=await axios.get(`${import.meta.env.VITE_BACKEND_URL}/admin/orders/${admin.restaurantId}`);
        const {data, message, success}=res.data;
        if(success){
         console.log(res);
@@ -71,7 +72,7 @@ export default function AdminDashboard() {
   useEffect(()=>{
     const fetchMenuList= async ()=>{
        try {
-        const res=await axios.get(`${import.meta.env.VITE_BACKEND_URL}/admin/menu-list/68ad99f917e4c291dfa3947d`);
+        const res=await axios.get(`${import.meta.env.VITE_BACKEND_URL}/admin/menu-list/${admin.restaurantId}`);
        const {data, message, success}=res.data;
        if(success){
         console.log(res);
@@ -90,7 +91,7 @@ export default function AdminDashboard() {
   const kpis = useMemo(() => {
     const today = new Date().toISOString().slice(0, 10);
     const todayOrders = orders.filter((o) => o.placedAt.startsWith(today));
-    const revenue = todayOrders.reduce((s, o) => s + o.amount, 0);
+    const revenue = todayOrders.reduce((s, o) => s+o.amount, 0);
     const live = orders.filter((o) => ["Preparing", "Out for delivery"].includes(o.status)).length;
     const delivered = orders.filter((o) => o.status === "Delivered").length;
     return { revenue, live, delivered, items: menu.length };
@@ -132,10 +133,7 @@ function TopBar() {
         <h3 className="fw-semibold">Admin Dashboard</h3>
         <p className="text-muted small">Manage menu, track live orders, and view history.</p>
       </div>
-      <div className="d-flex gap-2">
-        <input type="text" className="form-control rounded-pill" placeholder="Search orders or menu…" />
-        <button className="btn btn-outline-secondary rounded-pill">Export</button>
-      </div>
+      
     </div>
   );
 }
@@ -159,8 +157,8 @@ function Overview({ kpis, orders }) {
             </thead>
             <tbody>
               {orders.slice(0,5).map(o=>(
-                <tr key={o.id}>
-                  <td>{o.id}</td><td>{o.customer}</td><td>{o.totalItems}</td><td>₹{o.amount}</td>
+                <tr key={o.orderId}>
+                  <td>{o.orderId}</td><td>{o.customer}</td><td>{o.totalItems}</td><td>₹{o.amount}</td>
                   <td><span className={`badge bg-${statusVariant[o.status]}`}>{o.status}</span></td>
                   <td>{o.eta}</td>
                 </tr>

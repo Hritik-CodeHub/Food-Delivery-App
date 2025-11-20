@@ -25,7 +25,6 @@ console.log(items)
     image: item.item.menuItemImg,
     price: item.item.price,
     quantity: item.quantity,
-    restaurant:item.restaurant
   }));
   console.log( cartItems );
   
@@ -36,6 +35,7 @@ console.log(items)
       userId,
       total,
       cartItems,
+      restaurant:items[0].item.restaurant,
       status: "confirmed"
     }
     console.log(body);

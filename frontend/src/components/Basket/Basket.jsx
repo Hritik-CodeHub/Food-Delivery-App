@@ -17,7 +17,7 @@ const Basket = () => {
   const [discount, setDiscount] = useState(0);
   const [total, setTotal] = useState(0);
   let [deliveryFee,setDeliveryFee]=useState(0);
-  const id = user._id;
+  const id = user?._id;
 
 
   const fetchUserData = async () => {

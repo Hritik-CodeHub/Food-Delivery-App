@@ -18,6 +18,7 @@ import PartnerWithUsCard from '../../components/PartnerWithUsCard/PartnerWithUsC
 import RiderCard from '../../components/RiderCard/RiderCard'
 
 const Home = () => {
+  
   let foodItem = [
     { src: burger, title: "Burgers & Fast Food", alt: "burgers" },
     { src: salad, title: "Salads", alt: "salads" },

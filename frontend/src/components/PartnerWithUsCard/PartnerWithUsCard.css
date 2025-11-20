@@ -10,8 +10,10 @@
 
 @media (max-width: 768px) {
   .overlay-content {
-    position: static;
     padding: 2rem;
     text-align: center;
+  }
+  .tag-msg{
+    display: none;
   }
 }

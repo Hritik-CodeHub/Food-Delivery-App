@@ -1,5 +1,5 @@
 import React,{useState,useMemo} from 'react'
-
+import axios from 'axios';
 
 const statusVariant = {
   Delivered: "success",
@@ -15,12 +15,31 @@ function  OrdersTable({ orders, setOrders }){
   const filtered=useMemo(()=>{
     return orders.filter(o=>{
       const matchStatus=statusFilter==="all"||o.status===statusFilter;
-      const q=`${o.id} ${o.customer}`.toLowerCase();
+      const q=`${o.orderId} ${o.customer}`.toLowerCase();
       return matchStatus && q.includes(search.toLowerCase());
     });
   },[orders, statusFilter, search]);
 
-  const updateStatus=(id,status)=>setOrders(prev=>prev.map(o=>o.id===id?{...o,status}:o));
+  const updateStatus=async(orderId, status)=>{
+    try {
+      const res=await axios.put(`${import.meta.env.VITE_BACKEND_URL}/admin/orders/update-status`,
+        {
+          orderId, 
+          status
+        }
+      );
+     const { message, success}=res.data;
+     if(success){
+      console.log(message);
+      setOrders(prev=>prev.map(o=>o.orderId===orderId?{...o,status}:o))
+     }else{
+      console.log(message);
+     }
+     } catch (error) {
+      console.log(error);
+     }
+    
+  };
 
   return (
     <div>
@@ -39,8 +58,8 @@ function  OrdersTable({ orders, setOrders }){
             </thead>
             <tbody>
               {filtered.map(o=>(
-                <tr key={o.id}>
-                  <td>{o.id}</td><td>{o.customer}</td><td>{o.totalItems}</td><td>₹{o.amount}</td>
+                <tr key={o.orderId}>
+                  <td>{o.orderId}</td><td>{o.customer}</td><td>{o.totalItems}</td><td>₹{o.amount}</td>
                   <td><span className={`badge bg-${statusVariant[o.status]}`}>{o.status}</span></td>
                   <td>{o.eta}</td>
                   <td>
@@ -48,7 +67,7 @@ function  OrdersTable({ orders, setOrders }){
                       <button className="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">Update</button>
                       <ul className="dropdown-menu">
                         {["Preparing","Out for delivery","Delivered","Cancelled"].map(st=>
-                          <li key={st}><button className="dropdown-item" onClick={()=>updateStatus(o.id,st)}>{st}</button></li>
+                          <li key={st}><button className="dropdown-item" onClick={()=>updateStatus(o.orderId,st)}>{st}</button></li>
                         )}
                       </ul>
                     </div>

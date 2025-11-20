@@ -65,7 +65,7 @@ const RestaurantDetail = () => {
     </div>
     <Menu />
     <div className='all-items'>
-      <div className='offers-container'>
+      {/* <div className='offers-container'>
         <div className="card-style card text-bg-dark">
           <img src={offer1} className="card-img" alt="..." />
           <div className="card-overlay">
@@ -100,15 +100,15 @@ const RestaurantDetail = () => {
             </div>
           </div>
         </div>
-      </div>
-      {categories && categories.map((title,idx)=> (<>
-        <h1 key={idx}>{title}</h1>
+      </div> */}
+      {categories && categories.map((title, idx)=> (<div key={idx}>
+        <h1 >{title}</h1>
         <div  className='meal-container'>
-        {resData[title] && resData[title].map((item, ind) => (
-        <FoodCard item={item} key={ind} />
+        {resData[title] && resData[title].map((item) => (
+        <FoodCard item={item} key={item._id} />
       ))}
         </div>
-      </>))}
+      </div>))}
       
       
 

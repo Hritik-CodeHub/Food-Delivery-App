@@ -24,7 +24,7 @@ const PartnerWithUsCard = () => {
             />
     
             {/* White top-left pill box */}
-            <div className="position-absolute top-0 start-2 ms-4 m-3  p-2 px-2 bg-white rounded fw-semibold shadow-sm">
+            <div className="tag-msg position-absolute top-0 start-2 ms-4 m-3  p-2 px-2 bg-white rounded fw-semibold shadow-sm">
               Earn more with lower fees
             </div>
     

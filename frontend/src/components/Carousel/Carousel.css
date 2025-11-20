@@ -1,6 +1,6 @@
 .carousel-container {
-  width: 100%;
   display: flex;
+  width: 100%;
   justify-content: center;
   margin-top: 85px;
   padding: 0 16px;

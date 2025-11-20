@@ -28,6 +28,13 @@
     width: 824px;
     
 }
+.mobi-nav-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:start;
+    
+}
 
 
 
@@ -47,6 +54,11 @@
     background-color: #FC8A06;
 } */
 
+.nav-login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .nav-login .login-btn {
     background-color: #0a0a23;
@@ -116,6 +128,11 @@
   padding: 5px;
 }
 
+.mobi-menu-icon{
+  display: none;
+  margin-right: 10px;
+  
+}
 
 @media (max-width: 768px) {
     .logo{
@@ -129,4 +146,8 @@
     .nav-container {
         padding: 10px;
     }
+    .mobi-menu-icon{
+         display: block;
+    }
+    
 }

@@ -33,13 +33,13 @@ const BrowseMenu = () => {
         <Navbar />
         <div style={{marginBottom:82}}></div>
         <RestaurantDeals />
-        <div class="searchBar-style row g-3 align-items-center ">
-            <div class="col-auto">
-                <span id="passwordHelpInline" class="form-text">
+        <div className="searchBar-style row g-3 align-items-center ">
+            <div className="col-auto">
+                <span id="passwordHelpInline" className="form-text">
                     <h1>Search you favouriate meal</h1>
                 </span>
             </div>
-            <div class="browese-menu-search col-auto">
+            <div className="browese-menu-search col-auto">
                 <span><FaSearch style={{ 'fontSize': '18px', 'margin': '5px', 'color': 'grey' }} /></span>
                 <input placeholder="Search from menu..." onChange={(e) => { setSearch(e.target.value) }} />
             </div>

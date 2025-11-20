@@ -2,6 +2,7 @@ import React from 'react'
 
 /* --- Order History --- */
 function OrderHistory({ orders }) {
+  const formatItems = (items) => Array.isArray(items) ? items.map(i => `${i.name} x${i.quantity}`).join(', ') : String(items);
   const exportCSV = () => {
     const headers = [
       "Order ID",
@@ -14,9 +15,9 @@ function OrderHistory({ orders }) {
       "Method",
     ];
     const rows = orders.map((o) => [
-      o.id,
+      o.orderId,
       o.customer,
-      o.items,
+      formatItems(o.items),
       o.amount,
       o.status,
       o.eta,
@@ -66,10 +67,10 @@ function OrderHistory({ orders }) {
           <tbody>
             {orders.length > 0 ? (
               orders.map((o) => (
-                <tr key={o.id}>
-                  <td>{o.id}</td>
+                <tr key={o.orderId}>
+                  <td>{o.orderId}</td>
                   <td>{o.customer}</td>
-                  <td>{o.items}</td>
+                  <td>{formatItems(o.items)}</td>
                   <td>₹{o.amount}</td>
                   <td>
                     <span

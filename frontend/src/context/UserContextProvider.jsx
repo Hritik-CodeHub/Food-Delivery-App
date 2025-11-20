@@ -5,7 +5,11 @@ import axios from "axios";
 
 const UserContextProvider =({children})=>{
  
-   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")) || ""); // null = not logged in
+   const [user, setUser] = useState(() => {
+     const raw = localStorage.getItem("user");
+     if (!raw) return null;
+     try { return JSON.parse(raw); } catch { return null; }
+   });
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [cardData,setCardData]=useState([]);
 

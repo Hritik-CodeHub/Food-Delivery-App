@@ -7,7 +7,15 @@ export const AdminContext=createContext();
 
 export const AdminContextProvider =({children})=>{
  
-   const [admin, setAdmin] = useState(JSON.parse(localStorage.getItem("admin")) || ""); // null = not logged in
+   const [admin, setAdmin] = useState(() => {
+     try {
+       const adminData = localStorage.getItem("admin");
+       return adminData ? JSON.parse(adminData) : null;
+     } catch (error) {
+       console.error("Error parsing admin data from localStorage:", error);
+       return null;
+     }
+   }); // null = not logged in
   const [token, setToken] = useState(localStorage.getItem("admin-token") || "");
   const [cardData,setCardData]=useState([]);
   console.log(admin);
@@ -40,7 +48,7 @@ export const AdminContextProvider =({children})=>{
     localStorage.removeItem("admin-token");
     localStorage.removeItem("admin");
   };
-
+ 
    return(<>
     <AdminContext.Provider value={{ admin, token, adminLogin, adminLogout, }}>
     {children}

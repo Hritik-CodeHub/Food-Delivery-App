@@ -14,7 +14,7 @@ function AddMenuItem({ onAdd }) {
     try {
       const res=await axios.post(`${import.meta.env.VITE_BACKEND_URL}/admin/restaurant/create-menu-item/${admin._id}`, 
         {...form,
-          resturant:"68ad99f917e4c291dfa3947d"
+          restaurant:admin.restaurantId
         }, {
         headers: {
           "Content-Type": "multipart/form-data",
