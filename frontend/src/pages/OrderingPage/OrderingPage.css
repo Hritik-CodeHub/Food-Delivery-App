@@ -30,4 +30,7 @@
   .ord-container{
     flex-direction: column;
 }  
+.ord-card-container{
+    display: none;
+}
 }

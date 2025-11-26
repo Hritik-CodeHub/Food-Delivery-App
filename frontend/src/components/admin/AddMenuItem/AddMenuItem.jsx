@@ -25,12 +25,12 @@ function AddMenuItem({ onAdd }) {
        if(success){
         console.log(message);
         toast.success(message);
-        onAdd(...data);
+        onAdd(data);
         setForm({ name: "", category: "Pizza", price: "", description: "", offer: 0, menuItemImg: "", available: true });
        }
     } catch (error) {
-      console.log(error?.response?.data?.message)
-      toast.error(error?.response?.data?.message);
+      console.log(error)
+      toast.error("Error adding menu item");
     }
   };
 

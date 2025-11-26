@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 function RestaurantCard() {
     const restaurants = [
         { img: taj, name: "The Taj Restaurant", alt: "The Taj" },
-        { img: mcd, name: "Mc Donald's", alt: "Mc Donalds" },
+        { img: mcd, name: "Mc Donalds", alt: "Mc Donalds" },
         { img: dosahouse, name: "Dosa House", alt: "The Dosa Hub" },
         { img: bk, name: "Burger King", alt: "BK" },
         { img: lalit, name: "The Lalit", alt: "The Lalit" },

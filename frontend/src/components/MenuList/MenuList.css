@@ -56,4 +56,11 @@
     width: 20px;
     height: 20px;
   }
+  
+}
+
+@media (max-width: 770px) {
+   .menu-container {
+    display: none;
+  }
 }

@@ -14,6 +14,7 @@ import BrowseMenu from './pages/BrowseMenu/BrowseMenu'
 import OrderingPage from './pages/OrderingPage/OrderingPage'
 import AdminRegistration from './pages/PartnerWithUs/AdminRegistration'
 import AdminDashboard from './pages/AdminDashboard/AdminDashboard'
+import MyOrders from './pages/MyOrders/MyOrders'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
               <Route path='/orderingPage' element={<OrderingPage />} />
               <Route path='/admin-regis' element={<AdminRegistration />} />
               <Route path='/admin-dashboard' element={<AdminDashboard />} />
+              <Route path='/my-orders' element={<MyOrders />} />
             </Routes>
           </BrowserRouter>
         </BasketProvider>

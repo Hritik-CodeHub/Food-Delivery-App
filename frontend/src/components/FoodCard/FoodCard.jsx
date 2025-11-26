@@ -12,23 +12,24 @@ const FoodCard = ({ item }) => {
   return (
     <div className="meal-card-style card">
       {quantity === 0 ? (
-        <div className="add-icon" onClick={() => addItem(item._id)}>
+        <div className="add-icon" onClick={() => addItem(item._id)} aria-label="Add to basket">
           <BsPlusCircleFill size={48} color="#000" />
         </div>
       ) : (
-        <div className="add-icon icon-color">
-          <button onClick={() => removeItem(item._id)}><FaMinus /></button>
-          <span>{quantity}</span>
-          <button onClick={() => addItem(item._id)}><FaPlus /></button>
+        <div className="qty-control">
+          <button className="qty-btn qty-minus" onClick={() => removeItem(item._id)}><FaMinus /></button>
+          <span className="qty-value">{quantity}</span>
+          <button className="qty-btn qty-plus" onClick={() => addItem(item._id)}><FaPlus /></button>
         </div>
       )}
 
       <div className="meal-card-text">
         <div>
-          <h2><strong>{item.name}</strong></h2>
+          <h3><strong>{item.name}</strong></h3>
           <span className='rating'><FaStar style={{ color: "green" }} /> {item.rating}</span>
           <h5 className="card-title"><small>{item.description}</small></h5>
         </div>
+        <br />
         <h4><strong>₹{item.price}</strong></h4>
       </div>
 

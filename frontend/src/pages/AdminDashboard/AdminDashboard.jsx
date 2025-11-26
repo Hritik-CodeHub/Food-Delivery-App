@@ -7,6 +7,7 @@ import AddMenuItem from "../../components/admin/AddMenuItem/AddMenuItem";
 import OrderHistory from "../../components/admin/OrderHistory/OrderHistory";
 import axios from "axios";
 import { AdminContext } from "../../context/AdminContext"
+import { useNavigate } from 'react-router-dom';
 
 import { 
   FiLayout, 
@@ -45,11 +46,12 @@ const statusVariant = {
 };
 
 export default function AdminDashboard() {
-  const { admin, token }=useContext(AdminContext);
+  const { admin, token, adminLogout }=useContext(AdminContext);
   const [active, setActive] = useState("overview");
   const [orders, setOrders] = useState(mockOrders);
   const [menu, setMenu] = useState(mockMenu);
   console.log(admin.restaurantId);
+  const navigation = useNavigate();
 
   useEffect(()=>{
     const fetchOrders= async ()=>{
@@ -101,7 +103,20 @@ export default function AdminDashboard() {
     <div className="d-flex">
       {/* Sidebar */}
       <aside className=" bg-white border-end p-3 vh-100" style={{ width: "250px" }}>
-        <h5 className="fw-bold mb-4">FoodBook Admin</h5>
+        <div className="d-flex justify-content-between align-items-center mb-4">
+          <h5 className="fw-bold mb-0">Admin</h5>
+          <div className="user-dropdown">
+            <span className="user-profile">{(admin?.name || "A").charAt(0)}</span>
+            <div className="dropdown-content">
+              <p>{admin?.name || "Admin"}</p>
+              <button onClick={()=>{
+                adminLogout()
+                navigation("/")
+               }
+              }>Logout</button>
+            </div>
+          </div>
+        </div>
         <nav className="nav flex-column gap-2">
           <button className={`btn ${active==="overview"?"btn-dark":"btn-light"} text-start`} onClick={() => setActive("overview")}><FiLayout/> Overview</button>
           <button className={`btn ${active==="orders"?"btn-dark":"btn-light"} text-start`} onClick={() => setActive("orders")}><FiClock/> Orders</button>

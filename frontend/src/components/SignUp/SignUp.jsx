@@ -25,7 +25,7 @@ const SignUp = () => {
     e.preventDefault();
     const { name, email, password, confPassword } = signupData;
     
-
+      console.log(signupData)
     if (!name || !email || !password || !confPassword) {
       toast.error("Please fill in all fields");
       return;
@@ -38,7 +38,7 @@ const SignUp = () => {
 
     try {
       const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/register`, {
-        name,
+        name:signupData.name,
         email,
         password,
       });

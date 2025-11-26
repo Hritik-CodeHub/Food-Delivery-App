@@ -1,5 +1,7 @@
 import React from 'react';
 import './Footer.css';
+import logo from '../../assets/logo2.png'
+
 import { FaFacebookF, FaInstagram, FaTwitter, FaSnapchatGhost } from 'react-icons/fa';
 
 const Footer = () => {
@@ -8,11 +10,11 @@ const Footer = () => {
       <div className="footer-top">
         <div className="footer-brand">
           <div className='footer-brand-img'>
-          <img src='/src/Assets/logo.png' style={{ width: '240px', height: '50px' }}/>
+          <img src={logo} style={{ width: '240px', height: '50px' }}/>
           </div>
-          <div className="app-buttons">
-            <img src="/src/Assets/W.png" alt="App Store" />
-          </div>
+          {/* <div className="app-buttons">
+            <img src="/src/assets/W.png" alt="App Store" />
+          </div> */}
           <p>For better experience, download the our app now.</p>
         </div>
 

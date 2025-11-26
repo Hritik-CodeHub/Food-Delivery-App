@@ -43,6 +43,12 @@ function Navbar() {
                 >
                     MyBasket
                 </NavLink>
+                <NavLink
+                    to="/my-orders"
+                    className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}
+                >
+                    MyOrders
+                </NavLink>
             </div>
 
                <div className='nav-login'>

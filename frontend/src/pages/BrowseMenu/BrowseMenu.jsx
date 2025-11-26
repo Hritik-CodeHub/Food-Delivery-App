@@ -32,7 +32,7 @@ const BrowseMenu = () => {
     return (<>
         <Navbar />
         <div style={{marginBottom:82}}></div>
-        <RestaurantDeals />
+     
         <div className="searchBar-style row g-3 align-items-center ">
             <div className="col-auto">
                 <span id="passwordHelpInline" className="form-text">

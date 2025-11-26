@@ -6,7 +6,7 @@ import {AdminContext} from "../../../context/AdminContext"
 
 const RestaurantRegisterForm = () => {
   const navigation=useNavigate();
-  const { admin }=useContext(AdminContext);
+  const { admin, token }=useContext(AdminContext);
   const [formData, setFormData] = useState({
     adminId: admin._id,
     restaurantName: '',
@@ -16,6 +16,8 @@ const RestaurantRegisterForm = () => {
     carouselImageUrl: null,
     adImageUrl: null
   });
+
+  console.log(token)
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -39,7 +41,8 @@ const RestaurantRegisterForm = () => {
         form,
         {
           headers: {
-            "Content-Type": "multipart/form-data"
+            "Content-Type": "multipart/form-data",
+            "auth-token": token
           }
         }
       );
