@@ -7,10 +7,13 @@ import RestaurantDeals from '../../components/Deals/RestaurantDeals';
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
 import axios from "axios";
 import FoodCard from '../../components/FoodCard/FoodCard';
-const BrowseMenu = () => {
-    const [items, setItems] = useState("");
-    let [search, setSearch] = useState("");
+import { useParams } from 'react-router-dom';
 
+const BrowseMenu = () => {
+    const {id} = useParams();
+    const [items, setItems] = useState("");
+    let [search, setSearch] = useState( id || "");
+    
     const fetchMenuItems = async () => {
         try {
 

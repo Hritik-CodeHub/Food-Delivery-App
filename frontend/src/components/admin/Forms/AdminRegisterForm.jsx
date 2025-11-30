@@ -3,12 +3,13 @@ import RestaurantRegisterForm from './RestaurantRegisterForm';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { AdminContext } from '../../../context/AdminContext';
+import { useNavigate } from 'react-router-dom';
 
 const AdminRegisterForm = ({ setLoginForm }) => {
   const { adminLogin } = useContext(AdminContext);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const navigation=useNavigate();
   const [adminData, setAdminData] = useState({
     name: '',
     email: '',
@@ -39,11 +40,12 @@ const AdminRegisterForm = ({ setLoginForm }) => {
         }
       );
 
-      const { success, message, _id, name, token } = res.data;
+      const { success, message, adminId, restaurantId: _id, name, token } = res.data;
       if (success) {
-        adminLogin({ name, _id }, token);
+        adminLogin({ name, _id:adminId, restaurantId}, token);
         toast.success('Sign up successful!');
         setSubmitted(true); // Go to restaurant form
+        navigation("/admin-dashboard")
       } else {
         toast.error(message || 'Sign up failed');
       }

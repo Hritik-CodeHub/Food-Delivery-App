@@ -1,17 +1,22 @@
-import React, { useState,useContext } from 'react'
+import React, { useState,useContext,useRef } from 'react'
 import axios from "axios";
 import { toast } from "react-toastify";
 import { AdminContext } from "../../../context/AdminContext"
+import Loading from '../../Loading/Loading';
 /* --- Add Menu Item --- */
 function AddMenuItem({ onAdd }) {
   const [form, setForm] = useState({ name: "", category: "Pizza", price: "", description: "", offer: 0, menuItemImg: "", available: true });
   const canSave = form.name && form.price;
   const { admin, token }=useContext(AdminContext);
+  const [loading, setLoading] = useState(false);
+
   console.log(admin.restaurantId);
+  const fileInputRef = useRef(null);
    
   const handleSubmit = async (e )=> {
     e.preventDefault();
     try {
+      setLoading(true);
       const res=await axios.post(`${import.meta.env.VITE_BACKEND_URL}/admin/restaurant/create-menu-item/${admin._id}`, 
         {...form,
           restaurant:admin.restaurantId
@@ -27,15 +32,19 @@ function AddMenuItem({ onAdd }) {
         toast.success(message);
         onAdd(data);
         setForm({ name: "", category: "Pizza", price: "", description: "", offer: 0, menuItemImg: "", available: true });
+        if (fileInputRef.current) fileInputRef.current.value = "";
        }
     } catch (error) {
       console.log(error)
       toast.error("Error adding menu item");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="row g-3">
+      {loading && <Loading/>}
       <div className="col-lg-8">
         <div className=" shadow-sm p-3">
           <h5>Add New Menu Item</h5>
@@ -48,7 +57,24 @@ function AddMenuItem({ onAdd }) {
               <div className="col-md-6">
                 <label className="form-label">Category</label>
                 <select className="form-select" value={form.category} onChange={e => setForm({ ...form, category: e.target.value })}>
-                  <option>Pizza</option><option>Indian</option><option>Burger</option><option>Chinese</option><option>Dessert</option><option>Beverage</option>
+                  <option>Pizza</option>
+                  <option>Burger</option>
+                  <option>Chinese</option>
+                  <option>Biryani</option>
+                  <option>Rolls</option>
+                  <option>Veg Meal</option>
+                  <option>Fries & Sides</option>
+                  <option>Non-Veg Meal</option>
+                  <option>Thali</option>
+                  <option>Chicken</option>
+                  <option>Thali</option>
+                  <option>Cold drinks</option> 
+                  <option>Hot drinks</option> 
+
+                  <option>paneer</option>
+                  <option>North Indian</option>
+                  <option>Cake</option>
+                  <option>Sweets</option>
                 </select>
               </div>
               <div className="col-md-6">
@@ -61,7 +87,7 @@ function AddMenuItem({ onAdd }) {
               </div>
               <div className="col-12">
                 <label className="form-label ">Ad Image</label>
-                <input type="file" name="menuItemImg" className="form-control mb-3"
+                <input ref={fileInputRef} type="file" name="menuItemImg" className="form-control mb-3"
                   onChange={e => {
                     const file = e.target.files && e.target.files[0];
                     setForm({ ...form, menuItemImg: file })
