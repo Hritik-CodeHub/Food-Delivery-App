@@ -25,7 +25,6 @@ const SignUp = () => {
     e.preventDefault();
     const { name, email, password, confPassword } = signupData;
     
-      console.log(signupData)
     if (!name || !email || !password || !confPassword) {
       toast.error("Please fill in all fields");
       return;

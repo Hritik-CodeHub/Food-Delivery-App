@@ -44,14 +44,12 @@ const Basket = () => {
 
   const handaleRemoveItem = async (itemId) => {
     try {
-      console.log(itemId)
       const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/basket/remove-items`, {
         userId: id,
         itemId,
       });
       const { success, message } = res.data;
       if (success) {
-        console.log(message);
         fetchUserData();
       }
     } catch (error) {

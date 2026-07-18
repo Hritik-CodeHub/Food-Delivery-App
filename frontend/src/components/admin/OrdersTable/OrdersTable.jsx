@@ -1,5 +1,6 @@
 import React,{useState,useMemo} from 'react'
 import axios from 'axios';
+import { toast } from "react-toastify";
 
 const statusVariant = {
   Delivered: "success",
@@ -30,13 +31,13 @@ function  OrdersTable({ orders, setOrders }){
       );
      const { message, success}=res.data;
      if(success){
-      console.log(message);
       setOrders(prev=>prev.map(o=>o.orderId===orderId?{...o,status}:o))
      }else{
-      console.log(message);
+      toast.error(message || "Failed to update order status");
      }
      } catch (error) {
-      console.log(error);
+      toast.error("Failed to update order status");
+      console.error(error);
      }
     
   };

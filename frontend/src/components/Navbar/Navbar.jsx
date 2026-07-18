@@ -1,4 +1,4 @@
-import react, { useContext } from 'react';
+import  { useContext } from 'react';
 import './Navbar.css'
 import logo2 from '../../assets/logo2.png';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -8,8 +8,7 @@ import { FiMenu } from "react-icons/fi";
 function Navbar() {
     const navigation = useNavigate();
     const { user, logout } = useContext(UserContext);
-    return (<>
-        <div className="nav-container">
+    return (<div className="nav-container">
 
             <div className='nav-logo'>
                 <img className='logo' src={logo2} alt="Order-India Logo" />
@@ -106,9 +105,6 @@ function Navbar() {
             </div>
 
         </div>
-
-
-    </>
 
     );
 };

@@ -10,7 +10,6 @@ function AddMenuItem({ onAdd }) {
   const { admin, token }=useContext(AdminContext);
   const [loading, setLoading] = useState(false);
 
-  console.log(admin.restaurantId);
   const fileInputRef = useRef(null);
    
   const handleSubmit = async (e )=> {
@@ -28,7 +27,7 @@ function AddMenuItem({ onAdd }) {
       });
        const {data, message, success}=res.data;
        if(success){
-        console.log(message);
+
         toast.success(message);
         onAdd(data);
         setForm({ name: "", category: "Pizza", price: "", description: "", offer: 0, menuItemImg: "", available: true });

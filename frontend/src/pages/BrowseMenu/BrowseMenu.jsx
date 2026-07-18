@@ -12,12 +12,13 @@ import { useParams } from 'react-router-dom';
 const BrowseMenu = () => {
     const {id} = useParams();
     const [items, setItems] = useState("");
-    let [search, setSearch] = useState( id || "");
+    const decodedId = id ? decodeURIComponent(id) : "";
+    let [search, setSearch] = useState( decodedId || "");
     
     const fetchMenuItems = async () => {
         try {
 
-            const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/menus?search=${search}`);
+            const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/menus?search=${encodeURIComponent(search)}`);
             const { success, data } = res.data
             if (success) {
                 setItems(data);
@@ -30,8 +31,6 @@ const BrowseMenu = () => {
     useEffect(()=>{
         fetchMenuItems();
     },[search]);
-
-   console.log(items);
     return (<>
         <Navbar />
         <div style={{marginBottom:82}}></div>

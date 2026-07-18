@@ -20,12 +20,10 @@ const RestaurantDetail = () => {
   let [resData,setResData]=useState("");
   let [categories,setCategories]=useState("");
   let [nameCity,setNameCity]=useState("");
-  console.log(id);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
 
-    console.log("Search input:", e.target.value);
   };
 
   useEffect(() => {
@@ -33,7 +31,6 @@ const RestaurantDetail = () => {
       try {
         const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/menus/search/${encodeURIComponent(search)}`)
         if (res.data.success) {
-          console.log(res.data);
           const {restaurantName,city}=res.data;
           setNameCity({restaurantName,city});
           setResData(res.data.groupedMenu);

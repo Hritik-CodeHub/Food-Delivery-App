@@ -18,7 +18,7 @@ export const AdminContextProvider =({children})=>{
    }); // null = not logged in
   const [token, setToken] = useState(localStorage.getItem("admin-token") || "");
   const [cardData,setCardData]=useState([]);
-  console.log(admin);
+  
   useEffect(()=>{
     const fetchCardDetails = async () => {
     try {

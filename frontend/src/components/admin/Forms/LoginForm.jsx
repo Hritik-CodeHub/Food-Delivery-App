@@ -39,8 +39,7 @@ const LoginForm = ({ setLoginForm }) => {
           password: adminData.password,
         }
       );
-      console.log("email:", adminData.email.trim(),
-          "password:" ,adminData.password,)
+     
       const { success, message, _id, name, restaurantExists, restaurantId, authToken } = res.data;
       if (success) {
         adminLogin({ name, _id, restaurantId }, authToken);

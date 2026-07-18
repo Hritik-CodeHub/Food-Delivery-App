@@ -28,7 +28,6 @@ const Home = () => {
     { src: soup, title: "Soups", alt: "soups" },
   ];
   const { cardData } = useContext(UserContext);
-  console.log(cardData);
   return (<>
     <Navbar />
     <Carousel />
@@ -41,7 +40,7 @@ const Home = () => {
       <div className="row">
         {foodItem.map((item, index) => (
           <div className="col-6 col-md-4 col-lg-2 mb-4" key={index}>
-            <Link to={`/browseMenu/${item.title.trim()}`} className="link-style card h-100">
+            <Link to={`/browseMenu/${encodeURIComponent(item.title.trim())}`} className="link-style card h-100">
               <img src={item.src} className="foodimg card-img-top" alt={item.alt} />
               <div className="bd card-body d-flex align-items-center justify-content-center">
                 <h5 className="food-head card-title text-center">{item.title}</h5>

@@ -17,7 +17,6 @@ const RestaurantRegisterForm = () => {
     adImageUrl: null
   });
 
-  console.log(token)
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -46,7 +45,7 @@ const RestaurantRegisterForm = () => {
           }
         }
       );
-      console.log("Server response:", res.data);
+
       if(res.data.success){
         toast.success("Restaurant registered successfully!");
         navigation("/admin-dashboard")

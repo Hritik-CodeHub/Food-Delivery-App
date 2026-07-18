@@ -13,8 +13,6 @@ const CheckoutModal = ({ total, items, userId }) => {
     paymentMethod: ""
   });
 
-
-console.log(items)
   const handaleChange = (e) => {
     setorderData({ ...orderData, [e.target.name]: e.target.value });
   }
@@ -26,10 +24,10 @@ console.log(items)
     price: item.item.price,
     quantity: item.quantity,
   }));
-  console.log( cartItems );
+
   
   const handleSubmit = async () => {
-    console.log(orderData);
+   
     const body = {
       ...orderData,
       userId,
@@ -38,14 +36,14 @@ console.log(items)
       restaurant:items[0].item.restaurant,
       status: "confirmed"
     }
-    console.log(body);
+ 
       try {
       const res=await axios.post(`${import.meta.env.VITE_BACKEND_URL}/place-order`,
         body
       );
       const { success, message}= res.data;
       if(success){
-        console.log("success");
+
         toast.success(message);
         
       }

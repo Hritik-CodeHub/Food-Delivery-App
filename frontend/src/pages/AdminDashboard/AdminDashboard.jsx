@@ -50,7 +50,7 @@ export default function AdminDashboard() {
   const [active, setActive] = useState("overview");
   const [orders, setOrders] = useState(mockOrders);
   const [menu, setMenu] = useState(mockMenu);
-  console.log(admin.restaurantId);
+
   const navigation = useNavigate();
 
   useEffect(()=>{
@@ -59,10 +59,7 @@ export default function AdminDashboard() {
         const res=await axios.get(`${import.meta.env.VITE_BACKEND_URL}/admin/orders/${admin.restaurantId}`);
        const {data, message, success}=res.data;
        if(success){
-        console.log(res);
         setOrders(data);
-       }else{
-        console.log(message);
        }
        } catch (error) {
         console.log(error?.response?.data?.message);
@@ -77,10 +74,7 @@ export default function AdminDashboard() {
         const res=await axios.get(`${import.meta.env.VITE_BACKEND_URL}/admin/menu-list/${admin.restaurantId}`);
        const {data, message, success}=res.data;
        if(success){
-        console.log(res);
         setMenu(data.menus);
-       }else{
-        console.log(message);
        }
        } catch (error) {
         console.log(error?.response?.data?.message);

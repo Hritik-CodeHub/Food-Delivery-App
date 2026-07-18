@@ -18,7 +18,6 @@ const menuItems = [
 const MenuList = ({list , setSelect}) => {
 
   useEffect(()=>{
-    console.log(list[0])
     setSelect(list[0]);
   },[]);
   

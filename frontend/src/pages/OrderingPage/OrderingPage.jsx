@@ -25,9 +25,9 @@ const OrderingPage = () => {
             try {
                 setLoading(true)
                 const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/menus/search/${encodeURIComponent(search)}`);
-                console.log(res);
+                
                 if (res.data.success) {
-                    console.log(res.data);
+                    
                     setResData(res.data.groupedMenu);
                     setCategories(Object.keys(res.data.groupedMenu));
                 }

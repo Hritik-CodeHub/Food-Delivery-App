@@ -25,7 +25,6 @@ const Login = () => {
       const { success, message, _id, name ,token } = res.data;
       if (success) {
         login({name,_id},token);
-        console.log(name)
         toast.success("Login successful:");
         navigation("/");
       } else {
